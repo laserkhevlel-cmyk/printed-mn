@@ -765,9 +765,53 @@ textarea.form-input{resize:vertical;min-height:70px}
         <div class="card-footer"><span class="card-tag tag-gold">Захиалгаар</span><span class="card-arrow">→</span></div>
       </div></a>
 
+<a href="#card-holder" class="card" data-category="print" data-ptype="laser">
+      <div class="card-img"><img src="05b_card_holder.png" alt="Металл карт холдер" loading="lazy"></div>
+      <div class="card-body">
+        <div class="card-name">Металл карт холдер</div>
+        <div class="card-desc">RFID хамгаалалттай металл карт холдер. Лазер, UV хэвлэлээр брэнд нэр бичих боломжтой. Хэвлэл үнэгүй.</div>
+        <div class="card-footer"><span class="card-tag tag-blue">Лазер · UV</span><span class="card-arrow">→</span></div>
+      </div></a>
+
   </div>
 </section>
 
+
+<div class="detail-section" id="card-holder">
+  <div class="detail-inner">
+    <div class="section-label" style="text-align:left;margin-bottom:1.5rem">✦ Металл карт холдер</div>
+    <div class="detail-grid">
+      <div class="gallery gallery-one">
+        <div class="gallery-img"><img src="05b_card_holder.png" alt="Металл карт холдер" class="lb-img" onclick="openLightbox(this.src)" style="width:100%;height:100%;object-fit:contain;padding:12px"></div>
+      </div>
+      <div class="detail-content">
+        <h2>Металл карт холдер</h2>
+        <p>RFID хамгаалалттай металл карт холдер. Холдерын гаднаас картны мэдээлэл уншигдахгүй. Хэвлэлтэй гарын бэлэнд тохиромжтой.</p>
+        <div class="specs-grid">
+          <div class="spec-item"><div class="spec-label">Материал</div><div class="spec-val">Металл (Алюмин)</div></div>
+          <div class="spec-item"><div class="spec-label">Хамгаалалт</div><div class="spec-val">RFID блокер</div></div>
+          <div class="spec-item"><div class="spec-label">Хэвлэлт</div><div class="spec-val">Лазер, UV</div></div>
+          <div class="spec-item"><div class="spec-label">Хэвлэл</div><div class="spec-val">Бүтээгдэхүүн сонговол үнэгүй</div></div>
+          <div class="spec-item"><div class="spec-label">Утас</div><div class="spec-val">86681144</div></div>
+          <div class="spec-item"><div class="spec-label">Утас 2</div><div class="spec-val">85882030</div></div>
+        </div>
+        <ul class="features">
+          <li>Металл карт холдер — удаан эдэлгээтэй</li>
+          <li>Холдерын гаднаас картны мэдээлэл уншигдахгүй</li>
+          <li>Хэвлэлтэй гарын бэлэнд тохиромжтой</li>
+          <li>Лазер болон UV хэвлэлээр брэнд нэр харуулна</li>
+          <li>Хэвлэл үнэгүй</li>
+        </ul>
+        <div id="ds_card-holder" class="detail-stock-wrap"></div>
+        <div id="dp_card-holder" class="detail-price-wrap"></div>
+        <div class="order-btns-wrap">
+          <button class="order-btn-online" onclick="openOrderModal(this)" data-product="Металл карт холдер" data-prints="Лазер хэвлэл|UV хэвлэл">📦 Онлайн захиалга</button>
+          <a href="https://www.facebook.com/profile.php?id=100063665375091" target="_blank" class="order-btn-fb">✦ Facebook</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="detail-section" id="medallion">
   <div class="detail-inner">
     <div class="section-label" style="text-align:left;margin-bottom:1.5rem">✦ Дурсгалын медаллион</div>
@@ -2022,6 +2066,7 @@ const PRODUCTS_MAP = {
   'paper-bag':      'Цагаан цаасан уут',
   'tor-bag':        'Хэвлэлтэй тор уут',
   'name-necklace':  'Name necklace — нэрийн зүүлт',
+  'card-holder':    'Металл карт холдер',
 };
 
 let _stockMap = {};
