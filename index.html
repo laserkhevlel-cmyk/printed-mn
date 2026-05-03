@@ -781,10 +781,54 @@ textarea.form-input{resize:vertical;min-height:70px}
         <div class="card-footer"><span class="card-tag tag-gold">Корпорат бэлэг</span><span class="card-arrow">→</span></div>
       </div></a>
 
+<a href="#badge" class="card" data-category="print" data-ptype="dtf">
+      <div class="card-img"><img src="badge.png" alt="Энгэрийн тэмдэг" loading="lazy"></div>
+      <div class="card-body">
+        <div class="card-name">Энгэрийн тэмдэг (Badge)</div>
+        <div class="card-desc">Дугуй хэлбэртэй энгэрийн тэмдэг. Таны лого, загвараар бүрэн өнгөт хэвлэлтэй. Корпорат арга хэмжээ, сурталчилгаанд тохиромжтой.</div>
+        <div class="card-footer"><span class="card-tag tag-blue">Бүрэн өнгөт хэвлэл</span><span class="card-arrow">→</span></div>
+      </div></a>
+
   </div>
 </section>
 
 
+
+<div class="detail-section" id="badge">
+  <div class="detail-inner">
+    <div class="section-label" style="text-align:left;margin-bottom:1.5rem">✦ Энгэрийн тэмдэг (Badge)</div>
+    <div class="detail-grid">
+      <div class="gallery gallery-one">
+        <div class="gallery-img"><img src="badge.png" alt="Энгэрийн тэмдэг" class="lb-img" onclick="openLightbox(this.src)" style="width:100%;height:100%;object-fit:contain;padding:12px"></div>
+      </div>
+      <div class="detail-content">
+        <h2>Энгэрийн тэмдэг (Badge)</h2>
+        <p>Дугуй хэлбэртэй металл суурьтай энгэрийн тэмдэг. Таны лого, загвараар бүрэн өнгөт хэвлэлтэй. Корпорат арга хэмжээ, үзэсгэлэн, сурталчилгаанд хамгийн тохиромжтой бэлэг.</p>
+        <div class="specs-grid">
+          <div class="spec-item"><div class="spec-label">Хэлбэр</div><div class="spec-val">Дугуй</div></div>
+          <div class="spec-item"><div class="spec-label">Материал</div><div class="spec-val">Металл суурь + хуванцар бүрхүүл</div></div>
+          <div class="spec-item"><div class="spec-label">Хэвлэлт</div><div class="spec-val">Бүрэн өнгөт (Full color)</div></div>
+          <div class="spec-item"><div class="spec-label">Хавчаар</div><div class="spec-val">Зүү хавчаартай</div></div>
+          <div class="spec-item"><div class="spec-label">Утас</div><div class="spec-val">86681144</div></div>
+          <div class="spec-item"><div class="spec-label">Утас 2</div><div class="spec-val">85882030</div></div>
+        </div>
+        <ul class="features">
+          <li>Таны лого, загвараар захиалгаар хийнэ</li>
+          <li>Бүрэн өнгөт, тод хэвлэл</li>
+          <li>Корпорат арга хэмжээнд тохиромжтой</li>
+          <li>Үзэсгэлэн, сурталчилгааны бэлэгт хамгийн тохиромжтой</li>
+          <li>Жижиг болон том тоотой захиалга хүлээн авна</li>
+        </ul>
+        <div id="ds_badge" class="detail-stock-wrap"></div>
+        <div id="dp_badge" class="detail-price-wrap"></div>
+        <div class="order-btns-wrap">
+          <button class="order-btn-online" onclick="openOrderModal(this)" data-product="Энгэрийн тэмдэг (Badge)" data-prints="Бүрэн өнгөт хэвлэл">📦 Онлайн захиалга</button>
+          <a href="https://www.facebook.com/profile.php?id=100063665375091" target="_blank" class="order-btn-fb">✦ Facebook</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="detail-section" id="card-holder">
   <div class="detail-inner">
     <div class="section-label" style="text-align:left;margin-bottom:1.5rem">✦ Металл карт холдер</div>
@@ -2113,6 +2157,7 @@ const PRODUCTS_MAP = {
   'name-necklace':  'Name necklace — нэрийн зүүлт',
   'card-holder':    'Металл карт холдер',
   'leather-card-holder': 'Арьсан гадартай карт холдер',
+  'badge': 'Энгэрийн тэмдэг (Badge)',
 };
 
 let _stockMap = {};
