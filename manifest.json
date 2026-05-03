@@ -2,7 +2,8 @@
   "name": "PrintEd — All Printing & Custom Gifts",
   "short_name": "PrintEd",
   "description": "Лазер, UV, DTF хэвлэл. Промош бүтээгдэхүүн захиалга.",
-  "start_url": "/",
+  "start_url": "/index.html",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#cc0000",
@@ -22,6 +23,5 @@
       "purpose": "any maskable"
     }
   ],
-  "screenshots": [],
   "categories": ["shopping", "business"]
 }
