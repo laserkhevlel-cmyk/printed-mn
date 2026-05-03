@@ -448,7 +448,7 @@ textarea.form-input{resize:vertical;min-height:70px}
       <a href="#services" class="btn-primary holo-btn">Хэвлэлийн үйлчилгээ</a>
       <a href="#products" class="btn-primary holo-btn">Бүтээгдэхүүн үзэх</a>
       <a href="https://www.facebook.com/profile.php?id=100063665375091" target="_blank" class="btn-outline holo-btn">✦ Facebook захиалга</a>
-      <a href="printed.apk" download="PrintedMN.apk" class="btn-outline holo-btn" style="background:rgba(30,58,138,0.85);border-color:#3b82f6;display:flex;align-items:center;gap:8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.523 0H6.477L0 12l6.477 12h11.046L24 12z" opacity="0.3"/><path d="M12 16l-4-4h2.5V8h3v4H16l-4 4zm-6 2h12v2H6v-2z" fill="white"/></svg> Android апп татах</a>
+      <button onclick="installPWA()" class="btn-outline holo-btn" style="background:rgba(30,58,138,0.85);border-color:#3b82f6;display:flex;align-items:center;gap:8px;cursor:pointer;border:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.523 0H6.477L0 12l6.477 12h11.046L24 12z" opacity="0.3"/><path d="M12 16l-4-4h2.5V8h3v4H16l-4 4zm-6 2h12v2H6v-2z" fill="white"/></svg> Апп суулгах</button>
     </div>
   </div>
 </section>
@@ -2515,7 +2515,7 @@ if ('serviceWorker' in navigator) {
 
 // PWA суулгах banner
 let deferredPrompt;
-const installBtn = document.getElementById('pwa-install-btn');
+const installBtn = null; // floating btn removed
 
 window.addEventListener('beforeinstallprompt', (e) => {
   // preventDefault хийхгүй — Chrome шууд харуулна
@@ -2551,9 +2551,5 @@ async function requestNotificationPermission() {
 setTimeout(requestNotificationPermission, 5000);
 </script>
 
-<!-- PWA суулгах товч -->
-<div id="pwa-install-btn" style="display:flex;position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:9999;background:#cc0000;color:#fff;padding:12px 24px;border-radius:32px;cursor:pointer;font-size:15px;font-weight:700;align-items:center;gap:10px;box-shadow:0 4px 20px rgba(204,0,0,0.4);white-space:nowrap;" onclick="installPWA()">
-  📲 Апп болгон суулгах
-</div>
 </body>
 </html>
