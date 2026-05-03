@@ -2516,31 +2516,25 @@ if ('serviceWorker' in navigator) {
 // PWA суулгах banner
 let deferredPrompt;
 const installBtn = document.getElementById('pwa-install-btn');
-const iosBanner = document.getElementById('ios-install-banner');
-
-// iOS шалгах
-const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-
-if (isIOS && !isInStandaloneMode && iosBanner) {
-  setTimeout(() => { iosBanner.style.display = 'block'; }, 2000);
-}
 
 window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
+  // preventDefault хийхгүй — Chrome шууд харуулна
   deferredPrompt = e;
   if (installBtn) installBtn.style.display = 'flex';
 });
 
 function installPWA() {
-  if (!deferredPrompt) return;
-  deferredPrompt.prompt();
-  deferredPrompt.userChoice.then(choice => {
-    if (choice.outcome === 'accepted') {
-      if (installBtn) installBtn.style.display = 'none';
-    }
-    deferredPrompt = null;
-  });
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(choice => {
+      if (choice.outcome === 'accepted') {
+        if (installBtn) installBtn.style.display = 'none';
+      }
+      deferredPrompt = null;
+    });
+  } else {
+    alert('Апп суулгахын тулд:\n\n📱 Android: Chrome цэс → "Нүүр дэлгэцэнд нэмэх"\n🍎 iPhone: Safari → □↑ → "Нүүр дэлгэцэнд нэмэх"');
+  }
 }
 
 window.addEventListener('appinstalled', () => {
@@ -2558,14 +2552,8 @@ setTimeout(requestNotificationPermission, 5000);
 </script>
 
 <!-- PWA суулгах товч -->
-<div id="pwa-install-btn" style="display:none;position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:9999;background:#cc0000;color:#fff;padding:12px 24px;border-radius:32px;cursor:pointer;font-size:15px;font-weight:700;align-items:center;gap:10px;box-shadow:0 4px 20px rgba(204,0,0,0.4);white-space:nowrap;" onclick="installPWA()">
+<div id="pwa-install-btn" style="display:flex;position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:9999;background:#cc0000;color:#fff;padding:12px 24px;border-radius:32px;cursor:pointer;font-size:15px;font-weight:700;align-items:center;gap:10px;box-shadow:0 4px 20px rgba(204,0,0,0.4);white-space:nowrap;" onclick="installPWA()">
   📲 Апп болгон суулгах
-</div>
-
-<!-- iOS Safari заавар -->
-<div id="ios-install-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1a1a1a;color:#fff;padding:16px 20px;text-align:center;font-size:14px;border-top:2px solid #cc0000;">
-  📲 <strong>Апп суулгах:</strong> Safari-н доод хэсэгт <strong>□↑</strong> дарж <strong>"Нүүр дэлгэцэнд нэмэх"</strong>-г сонгоно уу
-  <span onclick="document.getElementById('ios-install-banner').style.display='none'" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:20px;cursor:pointer;opacity:0.7">✕</span>
 </div>
 </body>
 </html>
