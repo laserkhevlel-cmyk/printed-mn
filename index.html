@@ -412,6 +412,13 @@ textarea.form-input{resize:vertical;min-height:70px}
 .prod-edit-btn{display:inline-flex;align-items:center;gap:5px;background:rgba(37,99,235,0.08);border:1.5px solid rgba(37,99,235,0.2);border-radius:8px;padding:5px 12px;font-size:12px;font-weight:700;color:#1D4ED8;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif;margin-top:0.75rem}
 .prod-edit-btn:hover{background:rgba(37,99,235,0.15)}
 </style>
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#cc0000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="PrintEd">
+  <link rel="apple-touch-icon" href="icon-192.png">
 </head>
 <body>
 <nav>
@@ -2495,5 +2502,55 @@ loadPriceData();
 
 
 <div id="detail-screen"></div>
+
+<script>
+// Service Worker бүртгэх
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(reg => console.log('SW registered:', reg.scope))
+      .catch(err => console.log('SW error:', err));
+  });
+}
+
+// PWA суулгах banner
+let deferredPrompt;
+const installBtn = document.getElementById('pwa-install-btn');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  if (installBtn) installBtn.style.display = 'flex';
+});
+
+function installPWA() {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  deferredPrompt.userChoice.then(choice => {
+    if (choice.outcome === 'accepted') {
+      if (installBtn) installBtn.style.display = 'none';
+    }
+    deferredPrompt = null;
+  });
+}
+
+window.addEventListener('appinstalled', () => {
+  if (installBtn) installBtn.style.display = 'none';
+});
+
+// Push notification зөвшөөрөл авах
+async function requestNotificationPermission() {
+  if ('Notification' in window && Notification.permission === 'default') {
+    const permission = await Notification.requestPermission();
+    console.log('Notification permission:', permission);
+  }
+}
+setTimeout(requestNotificationPermission, 5000);
+</script>
+
+<!-- PWA суулгах товч -->
+<div id="pwa-install-btn" style="display:none;position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:9999;background:#cc0000;color:#fff;padding:12px 24px;border-radius:32px;cursor:pointer;font-size:15px;font-weight:700;align-items:center;gap:10px;box-shadow:0 4px 20px rgba(204,0,0,0.4);white-space:nowrap;" onclick="installPWA()">
+  📲 Апп болгон суулгах
+</div>
 </body>
 </html>
